@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "ElizaGrace1",
-    "database": "exampledb",
+    "password": "password",
+    "database": "gearzonedb",
     "host": "localhost",
     "dialect": "mysql"
   },
