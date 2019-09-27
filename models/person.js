@@ -1,13 +1,16 @@
 module.exports = function(sequelize, DataTypes) {
   var Person = sequelize.define("Person", {
     // Giving the Author model a name of type STRING
-    name: DataTypes.STRING
+    firstname: DataTypes.STRING,
+    lasttname: DataTypes.STRING,
+    email: DataTypes.STRING,
+    address: DataTypes.STRING,
+    team: DataTypes.STRING
   });
-
-  Pesron.associate = function (models) {
+  Person.associate = function (models) {
     // Associating Author with Posts
     // When an Author is deleted, also delete any associated Posts
-    Author.hasMany(models.team, {
+    Person.belongsTo(models.Team, {
       onDelete: "cascade"
     });
   };
