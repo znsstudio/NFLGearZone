@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var Hat = sequelize.define("Month", {
+    var Month = sequelize.define("Month", {
         title: {
             type: DataTypes.STRING,
             allowNull: false,
