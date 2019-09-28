@@ -1,5 +1,7 @@
 module.exports = function (sequelize, DataTypes) {
+
     var Month = sequelize.define("Month", {
+
         title: {
             type: DataTypes.STRING,
             allowNull: false,
