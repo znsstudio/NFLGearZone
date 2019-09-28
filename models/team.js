@@ -6,11 +6,6 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [1]
       }
-    },
-    body: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      len: [1]
     }
   });
 
@@ -18,6 +13,11 @@ module.exports = function(sequelize, DataTypes) {
     // We're saying that a Post should belong to an Author
     // A Post can't be created without an Author due to the foreign key constraint
     Team.hasMany(models.Person, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+    Team.hasMany(models.Hat, {
       foreignKey: {
         allowNull: false
       }

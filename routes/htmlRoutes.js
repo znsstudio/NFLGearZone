@@ -2,6 +2,7 @@ var db = require("../models");
 
 module.exports = function(app) {
   // load homepage for user
+  // getting info from form
   app.get("/", function(req, res) {
     db.Person.findAll({}).then(function(gearzonedb) {
       res.render("index", {
@@ -11,7 +12,13 @@ module.exports = function(app) {
     });
   });
 
-  // Load example page and pass in an example by id
+// post route goes here
+// gets data from form and enters it into database
+// EI & RM
+
+//
+  // load page for thank you and to show them their hat
+  // get current Date, compare to created at date, decide what hat they are getting
   app.get("/hat", function(req, res) {
     db.Hat.findOne({ where: { id: req.params.id } }).then(function(gearzonedb) {
       res.render("hats", {
@@ -19,6 +26,10 @@ module.exports = function(app) {
       });
     });
   });
+
+  //NP
+//
+
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
