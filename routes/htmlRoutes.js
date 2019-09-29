@@ -1,24 +1,35 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Load index page
+  // load homepage for user
+  // getting info from form
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Person.findAll({}).then(function(gearzonedb) {
       res.render("index", {
         msg: "Welcome!",
-        examples: dbExamples
+        examples: gearzonedb
       });
     });
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
+// post route goes here
+// gets data from form and enters it into database
+// EI & RM
+
+//
+  // load page for thank you and to show them their hat
+  // get current Date, compare to created at date, decide what hat they are getting
+  app.get("/hat", function(req, res) {
+    db.Hat.findOne({ where: { id: req.params.id } }).then(function(gearzonedb) {
+      res.render("hats", {
+        example: gearzonedb
       });
     });
   });
+
+  //NP
+//
+
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
