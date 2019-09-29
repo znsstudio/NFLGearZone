@@ -7,13 +7,12 @@ module.exports = function(sequelize, DataTypes) {
     address: DataTypes.STRING,
     team: DataTypes.STRING
   });
-  Person.associate = function (models) {
+  Person.associate = function(models) {
     // Associating Author with Posts
     // When an Author is deleted, also delete any associated Posts
     Person.belongsTo(models.Team, {
       onDelete: "cascade"
     });
   };
-
   return Person;
 };
