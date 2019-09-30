@@ -6,6 +6,7 @@ module.exports = function(sequelize, DataTypes) {
     email: DataTypes.STRING,
     address: DataTypes.STRING,
     team: DataTypes.STRING
+    //  Can add password if we want
   });
   Person.associate = function(models) {
     // Associating Author with Posts

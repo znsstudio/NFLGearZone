@@ -7,8 +7,8 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    body: {
-      type: DataTypes.TEXT,
+    image: {
+      type: DataTypes.STRING,
       allowNull: false,
       len: [1]
     }
@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
   Hat.associate = function(models) {
     // We're saying that a Post should belong to an Author
     // A Post can't be created without an Author due to the foreign key constraint
-    Hat.hasMany(models.Person, {
+    Hat.belongsTo(models.Team, {
       foreignKey: {
         allowNull: false
       }
