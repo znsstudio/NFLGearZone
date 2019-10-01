@@ -21,11 +21,13 @@ module.exports = function(app) {
       res.json(gearzonedb);
     });
   });
-
-  // find one person
-  app.get("/api/person", function(req, res) {
-    db.Person.findOne({}).then(function(gearzonedb) {
-      res.json(gearzonedb);
-    });
+  // Delete an example by id
+  app.delete("/api/examples/:id", function(req, res) {
+    db.Example.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbExample) {
+      res.json(dbExample);
   });
 };
