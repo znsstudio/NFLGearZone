@@ -2,15 +2,31 @@
 // var $exampleText = $("#example-text");
 // var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
-var $default = {
-  firstname: "Johnny Cupcakes",
-  lasttname: "OnIce",
-  email: "jmoney@cupcakes.net",
-  address: "2 Main Nowhere, USA 55675",
-  team: "New England Patriots"
-};
+// var $exampleList = $("#example-list");
+// var $default = {
+//   firstname: "Johnny Cupcakes",
+//   lasttname: "OnIce",
+//   email: "jmoney@cupcakes.net",
+//   address: "2 Main Nowhere, USA 55675",
+//   team: "New England Patriots"
+// };
 
+// $("#add-btn").on("click", function(event) {
+//   event.preventDefault();
+//   var newCharacter = {
+//     name: $("#name").val().trim(),
+//     role: $("#role").val().trim(),
+//     age: $("#age").val().trim(),
+//     forcePoints: $("#force-points").val().trim()
+//   };
+
+//   // Question: What does this code do??
+//   $.post("/api/characters", newCharacter)
+//     .then(function(data) {
+//       console.log("add.html", data);
+//       alert("Adding character...");
+//     });
+// });
 /*
 1. Get the values from the form and pass them as an argument to the SaveExample function.
 2. res.render a page that has all users at least in one view. This will show that you know how handlebars render engine works.
@@ -20,25 +36,25 @@ var $default = {
 */
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function($default) {
+  savePerson: function($newPerson) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
       url: "/person/new",
-      data: JSON.stringify($default)
+      data: JSON.stringify($newPerson)
     });
   },
-  getExamples: function() {
+  getPerson: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/person",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deletePerson: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/person/" + id,
       type: "DELETE"
     });
   }
@@ -68,8 +84,8 @@ var API = {
 //       return $li;
 //     });
 
-$exampleList.empty();
-$exampleList.append($examples);
+// $exampleList.empty();
+// $exampleList.append($examples);
 //   });
 // };
 
@@ -77,8 +93,24 @@ $exampleList.append($examples);
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
-
-  API.saveExample($default).then(function() {
+  var $newPerson = {
+    firstname: $("#firstname")
+      .val()
+      .trim(),
+    lastname: $("#lastname")
+      .val()
+      .trim(),
+    email: $("#email")
+      .val()
+      .trim(),
+    address: $("#address")
+      .val()
+      .trim(),
+    TeamId: $("#team")
+      .val()
+      .trim()
+  };
+  API.saveExample($newPerson).then(function() {
     refreshExamples();
   });
 };

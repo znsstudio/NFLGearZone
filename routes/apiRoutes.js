@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  //Make me a route that allows the creation of a new Hat
+  //Make me a route that allows the creation of a new person
   app.post("/person/new", function(req, res) {
     db.Person.create(req.body).then(function(result) {
       res.json({
@@ -11,7 +11,7 @@ module.exports = function(app) {
   });
 
   // Create a new example
-  app.post("/api/examples", function(req, res) {
+  app.post("/api/person ", function(req, res) {
     db.Example.create(req.body).then(function(dbExample) {
       res.json(dbExample);
     });
