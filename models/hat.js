@@ -9,8 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     image: {
       type: DataTypes.STRING,
-      allowNull: false,
-      len: [1]
+      allowNull: false
     }
   });
 
