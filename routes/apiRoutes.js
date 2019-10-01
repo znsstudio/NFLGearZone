@@ -1,20 +1,26 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+  // get all person info
+  app.get("/api/person", function(req, res) {
+    db.Person.findAll({}).then(function(gearzonedb) {
+      res.json(gearzonedb);
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  // post?
+
+  // create a new person
+  app.get("/api/person", function(req, res) {
+    db.Person.create({
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      email: req.body.email,
+      address: req.body.address
+    }).then(function(gearzonedb) {
+      res.json(gearzonedb);
     });
   });
-
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {
     db.Example.destroy({
@@ -23,6 +29,5 @@ module.exports = function(app) {
       }
     }).then(function(dbExample) {
       res.json(dbExample);
-    });
   });
 };
