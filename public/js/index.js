@@ -1,6 +1,6 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+// var $exampleText = $("#example-text");
+// var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 var $default = {
@@ -68,8 +68,8 @@ var API = {
 //       return $li;
 //     });
 
-//     $exampleList.empty();
-//     $exampleList.append($examples);
+$exampleList.empty();
+$exampleList.append($examples);
 //   });
 // };
 
@@ -85,16 +85,16 @@ var handleFormSubmit = function(event) {
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
+// var handleDeleteBtnClick = function() {
+//   var idToDelete = $(this)
+//     .parent()
+//     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
-};
+// API.deleteExample(idToDelete).then(function() {
+//   refreshExamples();
+// });
+// };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+// $exampleList.on("click", ".delete", handleDeleteBtnClick);
