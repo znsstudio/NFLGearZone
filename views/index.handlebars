@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-8 offset-2">
         <h1>NFL Gear Zone</h1>
-        <form class="clearfix mb-4" action="POST">
+        <form class="clearfix mb-4">
           <div class="form-group">
             <div class="card">
               <div class="card-header">
@@ -12,48 +12,48 @@
               <div class="card-body">
                 <form role="form">
                   <div class="form-group">
-                    <label for="firstname">First Name</label>
+                    <label id="firstname" for="fname">First Name</label>
                     <input type="text" class="form-control" id="firstname">
                   </div>
                   <div class="form-group">
-                    <label for="lastname">Last Name</label>
+                    <label id="lastname" for="lname">Last Name</label>
                     <input type="text" class="form-control" id="lastname">
                   </div>
                   <div class="form-group">
-                    <label for="email">Email</label>
+                    <label id="email" for="email">Email</label>
                     <input type="text" class="form-control" id="email">
                   </div>
                   <div class="d-flex justify-content-between">
                     <div class="form-group">
-                      <label for="password">Street</label>
+                      <label id="street" for="str">Street</label>
                       <input type="text" class="form-control" id="address">
                     </div>
                     <div class="form-group">
-                      <label for="password">City &amp; State</label>
+                      <label id="city" for="city">City &amp; State</label>
                       <input type="text" class="form-control" id="address">
                     </div>
                     <div class="form-group">
-                      <label for="password">Zip</label>
+                      <label id="zip" for="zip">Zip</label>
                       <input type="text" class="form-control" id="address">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="team">Enter Your Favorite Team</label>
+                    <label id="team" for="team">Enter Your Favorite Team</label>
                     <select class="form-control" id="exampleFormControlSelect1">
                       <option></option>
-                      <option>Philadelphia Eagles</option>
-                      <option>Dallas Cowboys</option>
-                      <option>Dallas Cowboys</option>
-                      <option>Los Angeles Rams</option>
-                      <option>New England Patriots</option>
-                      <option>Los Angeles Chargers</option>
-                      <option>Kansas City Chiefs</option>
-                      <option>New Orleans Saints</option>
-                      <option>Cleveland Browns</option>
-                      <option>Indianapolis Colts</option>
+                      <option value="3">Philadelphia Eagles</option>
+                      <option value="2"> Dallas Cowboys</option>
+                      <option value="4">Chicago Bears</option>
+                      <option value="1">Los Angeles Rams</option>
+                      <option value="5">New England Patriots</option>
+                      <option value="6">Los Angeles Chargers</option>
+                      <option value="7">Kansas City Chiefs</option>
+                      <option value="8">New Orleans Saints</option>
+                      <option value="9">Cleveland Browns</option>
+                      <option value="10">Indianapolis Colts</option>
                     </select>
                   </div>
-                  <button type="submit" class="btn btn-primary submit">Submit</button>
+                  <button id="submit" type="submit" class="btn btn-primary submit">Submit</button>
                 </form>
               </div>
             </div>

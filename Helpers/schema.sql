@@ -1,12 +1,12 @@
 DROP DATABASE IF EXISTS gearzonedb;
 CREATE DATABASE gearzonedb;
 
-USE DATABASE gearzonedb;
+-- USE DATABASE gearzonedb;
 
-DROP DATABASE IF EXISTS gearzonedb;
-CREATE DATABASE gearzonedb;
+-- DROP DATABASE IF EXISTS gearzonedb;
+-- CREATE DATABASE gearzonedb;
 
-USE gearzonedb;
+-- USE gearzonedb;
 
 -- CREATE TABLE Team(
 -- id int NOT NULL AUTO_INCREMENT,
@@ -18,7 +18,6 @@ USE gearzonedb;
 -- title VARCHAR (255) NOT NULL,
 -- image VARCHAR (255) NOT NULL,
 -- PRIMARY KEY (id)
-
 -- );
 -- CREATE TABLE Person(
 -- id int NOT NULL AUTO_INCREMENT,

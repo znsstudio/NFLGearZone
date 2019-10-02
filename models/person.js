@@ -4,8 +4,8 @@ module.exports = function(sequelize, DataTypes) {
     firstname: DataTypes.STRING,
     lasttname: DataTypes.STRING,
     email: DataTypes.STRING,
-    address: DataTypes.STRING,
-    team: DataTypes.STRING
+    address: DataTypes.STRING
+
     //  Can add password if we want
   });
   Person.associate = function(models) {
@@ -15,6 +15,5 @@ module.exports = function(sequelize, DataTypes) {
       onDelete: "cascade"
     });
   };
-
   return Person;
 };
