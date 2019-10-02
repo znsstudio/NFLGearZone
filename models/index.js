@@ -38,6 +38,7 @@ Object.keys(db).forEach(function (modelName) {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
 let hats = [{
     title: "Distressed Bears Hat",
     image: "/images/Bears/B1.jpeg",

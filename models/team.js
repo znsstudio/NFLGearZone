@@ -60,6 +60,7 @@ module.exports = function (sequelize, DataTypes) {
   for (let i = 0; i < teams.length; i++) {
     Team.sync().then(function () {
       Team.create(teams[i])
+      // force=true;
     });
   }
 

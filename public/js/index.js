@@ -110,8 +110,8 @@ var handleFormSubmit = function(event) {
       .val()
       .trim()
   };
-  API.saveExample($newPerson).then(function() {
-    refreshExamples();
+  API.savePerson($newPerson).then(function() {
+    refreshPerson();
   });
 };
 

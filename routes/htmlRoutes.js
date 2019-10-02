@@ -4,8 +4,17 @@ module.exports = function(app) {
   // load homepage for user
   app.get("/", function(req, res) {
     //Find all people and then return them as a promise
-    db.Person.findAll({}).then(function(result) {
+    db.Person.findAll({
+      include: [db.Team]
+    }).then(function(result) {
       res.render("index", {
+        person: result
+      });
+    });
+  });
+  app.post("/person/new", function(req, res) {
+    db.Person.create(req.body).then(function(result) {
+      res.json({
         person: result
       });
     });
