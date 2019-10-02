@@ -106,7 +106,7 @@ var handleFormSubmit = function(event) {
     address: $("#address")
       .val()
       .trim(),
-    TeamId: $("#team")
+    TeamId: $("#exampleFormControlSelect1")
       .val()
       .trim()
   };
