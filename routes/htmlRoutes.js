@@ -5,6 +5,12 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.render("index", {});
   });
+  app.post("/person/new", function(req, res) {
+    db.Person.create(req.body).then(function(result) {
+      console.log(result);
+      res.redirect("hat");
+    });
+  });
 
   // load second "thank you" page and display hat
   app.get("/hat", function(req, res) {
