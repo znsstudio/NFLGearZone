@@ -1,3 +1,4 @@
+// from template code
 "use strict";
 
 var fs = require("fs");
@@ -39,6 +40,8 @@ Object.keys(db).forEach(function (modelName) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+// creating title, image, and team ID for hats
+// 3 hats per team (simulating a 3 month subscription, can add more later on)
 let hats = [{
     title: "Distressed Bears Hat",
     image: "/images/Bears/B1.jpeg",

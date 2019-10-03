@@ -1,12 +1,11 @@
 DROP DATABASE IF EXISTS gearzonedb;
 CREATE DATABASE gearzonedb;
 
+-- code for creating database/tables in SQL
 -- USE DATABASE gearzonedb;
 
 -- DROP DATABASE IF EXISTS gearzonedb;
 -- CREATE DATABASE gearzonedb;
-
--- USE gearzonedb;
 
 -- CREATE TABLE Team(
 -- id int NOT NULL AUTO_INCREMENT,
