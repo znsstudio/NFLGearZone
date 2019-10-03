@@ -12,11 +12,10 @@ module.exports = function (app) {
       });
     });
   });
-  app.post("/person/new", function (req, res) {
-    db.Person.create(req.body).then(function (result) {
-      res.json({
-        person: result
-      });
+  app.post("/person/new", function(req, res) {
+    db.Person.create(req.body).then(function(result) {
+      console.log(result);
+      res.redirect("hat");
     });
   });
 
