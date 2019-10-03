@@ -1,10 +1,9 @@
-
+-- ultimately don't need this file but keeping for our own info --
 -- seeds for teams --
-INSERT INTO Team (name) 
-VALUES ("Philadelphia Eagles"),("Dallas Cowboys"),("Dallas Cowboys"),("Los Angeles Rams"),("New England Patriots"),("Los Angeles Chargers"),("Kansas City Chiefs"),("New Orleans Saints"),("Cleveland Browns"),("Indianapolis Colts");
+-- INSERT INTO Team (name) 
+-- VALUES ("Philadelphia Eagles"),("Dallas Cowboys"),("Dallas Cowboys"),("Los Angeles Rams"),("New England Patriots"),("Los Angeles Chargers"),("Kansas City Chiefs"),("New Orleans Saints"),("Cleveland Browns"),("Indianapolis Colts");
 
 -- seeds for hat pictures --
-
 -- INSERT INTO Hat (title, image)
 -- VALUES ("Distressed Bears Hat", "/images/Bears/B1.jpeg"), 
 -- ("Classic Bears Hat", "/images/Bears/B2.jpeg"), 

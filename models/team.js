@@ -1,3 +1,4 @@
+//team table 
 module.exports = function (sequelize, DataTypes) {
   var Team = sequelize.define("Team", {
     title: {
@@ -8,10 +9,8 @@ module.exports = function (sequelize, DataTypes) {
       }
     }
   });
-
+  //associations 
   Team.associate = function (models) {
-    // We're saying that a Post should belong to an Author
-    // A Post can't be created without an Author due to the foreign key constraint
     Team.hasMany(models.Person, {
       foreignKey: {
         allowNull: false
@@ -24,7 +23,7 @@ module.exports = function (sequelize, DataTypes) {
     });
   };
 
-
+  // creating title for teams
   let teams = [{
       title: "Philadelphia Eagles"
     },

@@ -1,17 +1,19 @@
+//require db
 var db = require("../models");
 
 module.exports = function (app) {
   // load homepage for user
   app.get("/", function (req, res) {
-    //Find all people and then return them as a promise
+    // find all people and then return them as a promise
     db.Person.findAll({
       include: [db.Team]
-    }).then(function (result) {
+    }).then(function(result) {
       res.render("index", {
         person: result
       });
     });
   });
+  // post a new person 
   app.post("/person/new", function(req, res) {
     db.Person.create(req.body).then(function(result) {
       console.log(result);
@@ -27,7 +29,6 @@ module.exports = function (app) {
       });
     });
   });
-
 
   /*
   deleted code:  
