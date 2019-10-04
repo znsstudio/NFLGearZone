@@ -60,12 +60,13 @@ var handleFormSubmit = function(event) {
     address: $("#address")
       .val()
       .trim(),
-    TeamId: $("#exampleFormControlSelect1")
+    TeamId: parseInt($("#exampleFormControlSelect1")
       .val()
-      .trim()
+      .trim())
   };
-  API.savePerson($newPerson).then(function() {
-    refreshPerson();
+  API.savePerson($newPerson).then(function(data) {
+    console.log(data);
+    window.location = "/hat/" + data.person.id;
   });
 };
 
