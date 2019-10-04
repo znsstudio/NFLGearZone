@@ -1,12 +1,12 @@
 var db = require("../models");
 
-module.exports = function (app) {
+module.exports = function(app) {
   // load homepage for user
-  app.get("/", function (req, res) {
+  app.get("/", function(req, res) {
     //Find all people and then return them as a promise
     db.Person.findAll({
       include: [db.Team]
-    }).then(function (result) {
+    }).then(function(result) {
       res.render("index", {
         person: result
       });
@@ -20,14 +20,19 @@ module.exports = function (app) {
   });
 
   // load second "thank you" page and display hat
-  app.get("/hat/:id", function (req, res) {
-    db.hat.findOne({ where: { id: req.params.id } }).then(function (hat) {
-      res.render("hat", {
-        hat: hat
+  app.get("/hat/:id", function(req, res) {
+    db.hat
+      .findOne({
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(function(hat) {
+        res.render("hat", {
+          hat: hat
+        });
       });
-    });
   });
-
 
   /*
   deleted code:  
@@ -35,7 +40,7 @@ module.exports = function (app) {
   */
 
   // render 404 page for any unmatched routes
-  app.get("*", function (req, res) {
+  app.get("*", function(req, res) {
     res.render("404");
   });
 };
