@@ -8,7 +8,7 @@ module.exports = function(app) {
     // find all people and then return them as a promise
     db.Team.findAll({}).then(function(result) {
       res.render("index", {
-        Team: result.slice(0,10)
+        Team: result.slice(0, 10)
       });
     });
   });
@@ -22,7 +22,9 @@ module.exports = function(app) {
   // load second "thank you" page and display hat
   app.get("/hat/:id", function(req, res) {
     db.Person.findOne({
-      where: { id: req.params.id },
+      where: {
+        id: req.params.id
+      },
       include: [
         {
           model: db.Team,
@@ -34,25 +36,22 @@ module.exports = function(app) {
         }
       ]
     }).then(function(result) {
-      // console.log(result);
-      // console.log(result.dataValues.createdAt);
-      // console.log(result.dataValues.Team.dataValues);
-      // console.log(result.dataValues.Team.dataValues.Hats);
-      let creationDate = moment(result.dataValues.createdAt);
+      var creationDate = moment(result.dataValues.createdAt);
       // console.log(creationDate.month());
-      let today = moment ();
+      var today = moment();
       // console.log(today.month())
-      let difference = Math.abs(today.month()-creationDate.month());
-      difference = difference%3; 
-      let hat = result.dataValues.Team.dataValues.Hats[difference].dataValues;
-      let person = result.dataValues;
-      let team = result.dataValues.Team.dataValues;
-      console.log(hat,team,person)
+      var difference = Math.abs(today.month() - creationDate.month());
+      console.log(result);
+      difference = difference % 3;
+      var hat = result.dataValues.Team.dataValues.Hats[difference].dataValues;
+      var person = result.dataValues;
+      var team = result.dataValues.Team.dataValues;
       //select right hat
       res.render("hat", {
         Hat: hat,
         Person: person,
-        Team: team
+        Team: team,
+        Today: moment().format("MMMM Do YYYY, h:mm:ss a")
       });
     });
   });
