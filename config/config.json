@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Ah6769",
+    "password": "password",
     "database": "gearzonedb",
     "host": "localhost",
     "dialect": "mysql"
