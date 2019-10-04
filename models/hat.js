@@ -1,4 +1,4 @@
-// hat table 
+// hat table
 module.exports = function(sequelize, DataTypes) {
   var Hat = sequelize.define("Hat", {
     title: {
