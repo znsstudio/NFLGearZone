@@ -1,3 +1,32 @@
 .list-group-item {
   line-height: 2.5;
 }
+h1 {
+  /*main-heading*/
+  font-family: "Lobster", cursive;
+  color: #0516d5;
+  font-size: 8.5rem;
+  margin: 0 0 1.7rem 1.7rem;
+  letter-spacing: -0.5rem;
+  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white,
+    2px 2px 0 white;
+}
+
+header {
+  background-color: white;
+}
+
+
+body {
+  background: url("images/background-image.png");
+  border: #0202f0 1px solid;
+  font-family:"Questrial", sans-serif;
+}
+
+figure {
+  width: 100%;
+  height: 7rem;
+  overflow: hidden;
+  border-radius: 4px;
+  justify-content: space-around;
+}

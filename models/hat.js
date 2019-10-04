@@ -1,3 +1,4 @@
+// hat table
 module.exports = function(sequelize, DataTypes) {
   var Hat = sequelize.define("Hat", {
     title: {
@@ -12,10 +13,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
-
+  //associations
   Hat.associate = function(models) {
-    // We're saying that a Post should belong to an Author
-    // A Post can't be created without an Author due to the foreign key constraint
     Hat.belongsTo(models.Team, {
       foreignKey: {
         allowNull: false

@@ -1,8 +1,7 @@
-// Get references to page elements
-// var $exampleText = $("#example-text");
-// var $exampleDescription = $("#example-description");
+// subscribe button
 var $submitBtn = $("#submit");
-// var $exampleList = $("#example-list");
+
+// hard code for putting a person into our table
 // var $default = {
 //   firstname: "Johnny Cupcakes",
 //   lasttname: "OnIce",
@@ -11,30 +10,14 @@ var $submitBtn = $("#submit");
 //   team: "New England Patriots"
 // };
 
-// $("#add-btn").on("click", function(event) {
-//   event.preventDefault();
-//   var newCharacter = {
-//     name: $("#name").val().trim(),
-//     role: $("#role").val().trim(),
-//     age: $("#age").val().trim(),
-//     forcePoints: $("#force-points").val().trim()
-//   };
-
-//   // Question: What does this code do??
-//   $.post("/api/characters", newCharacter)
-//     .then(function(data) {
-//       console.log("add.html", data);
-//       alert("Adding character...");
-//     });
-// });
-/*
+/* ESSENTIAL TO DO:
 1. Get the values from the form and pass them as an argument to the SaveExample function.
 2. res.render a page that has all users at least in one view. This will show that you know how handlebars render engine works.
 3. Sequelize has its own methods for creation and the like, use them.
 4. Create crud routes and test them with Postman. 
-
 */
-// The API object contains methods for each kind of request we'll make
+
+// the API object contains methods for each kind of request we'll make
 var API = {
   savePerson: function($newPerson) {
     return $.ajax({
@@ -60,6 +43,34 @@ var API = {
   }
 };
 
+// handleFormSubmit is called whenever we submit a new example
+// save the new person to the db and refresh the list
+var handleFormSubmit = function(event) {
+  event.preventDefault();
+  var $newPerson = {
+    firstname: $("#firstname")
+      .val()
+      .trim(),
+    lastname: $("#lastname")
+      .val()
+      .trim(),
+    email: $("#email")
+      .val()
+      .trim(),
+    address: $("#address")
+      .val()
+      .trim(),
+    TeamId: parseInt($("#exampleFormControlSelect1")
+      .val()
+      .trim())
+  };
+  API.savePerson($newPerson).then(function(data) {
+    console.log(data);
+    window.location = "/hat/" + data.person.id;
+  });
+};
+
+// code to add time permitting
 // refreshExamples gets new examples from the db and repopulates the list
 // var refreshExamples = function() {
 //   API.getExamples().then(function(data) {
@@ -89,32 +100,6 @@ var API = {
 //   });
 // };
 
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
-  event.preventDefault();
-  var $newPerson = {
-    firstname: $("#firstname")
-      .val()
-      .trim(),
-    lastname: $("#lastname")
-      .val()
-      .trim(),
-    email: $("#email")
-      .val()
-      .trim(),
-    address: $("#address")
-      .val()
-      .trim(),
-    TeamId: $("#exampleFormControlSelect1")
-      .val()
-      .trim()
-  };
-  API.savePerson($newPerson).then(function() {
-    refreshPerson();
-  });
-};
-
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
 // var handleDeleteBtnClick = function() {
@@ -127,6 +112,5 @@ var handleFormSubmit = function(event) {
 // });
 // };
 
-// Add event listeners to the submit and delete buttons
+// add event listeners to the submit button
 $submitBtn.on("click", handleFormSubmit);
-// $exampleList.on("click", ".delete", handleDeleteBtnClick);

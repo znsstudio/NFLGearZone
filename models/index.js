@@ -1,3 +1,4 @@
+// from template code
 "use strict";
 
 var fs = require("fs");
@@ -39,164 +40,167 @@ Object.keys(db).forEach(function (modelName) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+// creating title, image, and team ID for hats
+// 3 hats per team (simulating a 3 month subscription, can add more later on)
 let hats = [{
     title: "Distressed Bears Hat",
     image: "/images/Bears/B1.jpeg",
-    TeamId: 4
+    team:"Chicago Bears"
   },
   {
     title: "Classic Bears Hat",
     image: "/images/Bears/B3.jpeg",
-    TeamId: 4
+    team:"Chicago Bears"
   },
   {
     title: "Navy Bears Hat",
     image: "/images/Bears/B3.jpeg",
-    TeamId: 4
+    team:"Chicago Bears"
   },
   {
     title: "Orange Browns Hat",
     image: "/images/Browns/BR1.jpeg",
-    TeamId: 9
+    team:"Cleveland Browns"
   },
   {
     title: "Distressed Browns Hat",
     image: "/images/Browns/BR2.jpeg",
-    TeamId: 9
+    team:"Cleveland Browns"
   },
   {
     title: "Big Letters Browns Hat",
     image: "/images/Browns/BR3.jpeg",
-    TeamId: 9
+    team:"Cleveland Browns"
   },
   {
     title: "Rainbow Chargers Hat",
     image: "/images/Chargers/C1.jpeg",
-    TeamId: 6
+    team:"Los Angeles Chargers"
   },
   {
     title: "Blue Chargers Hat",
     image: "/images/Chargers/C2.jpeg",
-    TeamId: 6
+    team:"Los Angeles Chargers"
   },
   {
     title: "Black Chargers Hat",
     image: "/images/Chargers/C3.jpeg",
-    TeamId: 6
+    team:"Los Angeles Chargers"
   },
   {
     title: "Distressed Chiefs Hat",
-    image: "/images/Chiefs/CH1.jpg",
-    TeamId: 7
+    image: "/images/Chiefs/CH1.jpeg",
+    team:"Kansas City Chiefs"
   },
   {
     title: "Black Chiefs Hat",
-    image: "/images/Chiefs/H.jpg",
-    TeamId: 7
+    image: "/images/Chiefs/H.jpeg",
+    team:"Kansas City Chiefs"
   },
   {
     title: "Red Chiefs Hat",
-    image: "/images/Chiefs/CH3.jpg",
-    TeamId: 7
+    image: "/images/Chiefs/CH3.jpeg",
+    team:"Kansas City Chiefs"
   },
   {
     title: "Blue Colts Hat",
-    image: "/images/Colts/CO1.jpg",
-    TeamId: 10
+    image: "/images/Colts/CO1.jpeg",
+    team:"Indianapolis Colts"
   },
   {
     title: "Black Colts Hat",
-    image: "/images/Colts/CO2.jpg",
-    TeamId: 10
+    image: "/images/Colts/CO2.jpeg",
+    team:"Indianapolis Colts"
   },
   {
     title: "White Colts Hat",
-    image: "/images/Colts/CO3.jpg",
-    TeamId: 10
+    image: "/images/Colts/CO3.jpeg",
+    team:"Indianapolis Colts"
   },
   {
     title: "Blue Cowboys Hat",
-    image: "/images/Cowboys/COW1.jpg",
-    TeamId: 2
+    image: "/images/Cowboys/COW1.jpeg",
+    team:"Dallas Cowboys"
   },
   {
     title: "Black Cowboys Hat",
-    image: "/images/Cowboys/COW2.jpg",
-    TeamId: 2
+    image: "/images/Cowboys/COW2.jpeg",
+    team:"Dallas Cowboys"
   },
   {
     title: "White Cowboys Hat",
-    image: "/images/Cowboys/COW3.jpg",
-    TeamId: 2
+    image: "/images/Cowboys/COW3.jpeg",
+    team:"Dallas Cowboys"
   },
   {
     title: "Black Eagles Hat",
-    image: "/images/Eagles/E1.jpg",
-    TeamId: 3
+    image: "/images/Eagles/E1.jpeg",
+    team:"Philadelphia Eagles"
   },
   {
     title: "Black and Green Eagles Hat",
-    image: "/images/Eagles/E2.jpg",
-    TeamId: 3
+    image: "/images/Eagles/E2.jpeg",
+    team:"Philadelphia Eagles"
   },
   {
     title: "Black Denim Eagles Hat",
-    image: "/images/Eagles/E3.jpg",
-    TeamId: 3
+    image: "/images/Eagles/E3.jpeg",
+    team:"Philadelphia Eagles"
   },
   {
     title: "White Patriots Hat",
-    image: "/images/Patriots/P1.jpg",
-    TeamId: 5
+    image: "/images/Patriots/P1.jpeg",
+    team:"New England Patriots"
   },
   {
     title: "Navy Patriots Hat",
-    image: "/images/Patriots/P2.jpg",
-    TeamId: 5
+    image: "/images/Patriots/P2.jpeg",
+    team:"New England Patriots"
   },
   {
     title: "White and Navy Patriots Hat",
-    image: "/images/Patriots/P3.jpg",
-    TeamId: 5
+    image: "/images/Patriots/P3.jpeg",
+    team:"New England Patriots"
   },
   {
     title: "Blue and Yellow Rams Hat",
-    image: "/images/Rams/R1.jpg",
-    TeamId: 1
+    image: "/images/Rams/R1.jpeg",
+    team:"Los Angeles Rams"
   },
   {
     title: "Navy and Gold Rams Hat",
-    image: "/images/Rams/R2.jpg",
-    TeamId: 1
+    image: "/images/Rams/R2.jpeg",
+    team:"Los Angeles Rams"
   },
   {
     title: "Blue and White Rams Hat",
-    image: "/images/Rams/R3.jpg",
-    TeamId: 1
+    image: "/images/Rams/R3.jpeg",
+    team:"Los Angeles Rams"
   },
   {
     title: "Black Visor Saints Hat",
-    image: "/images/Saints/S1.jpg",
-    TeamId: 8
+    image: "/images/Saints/S1.jpeg",
+    team:"New Orleans Saints"
   },
   {
     title: "Black and Gold Saints Hat",
-    image: "/images/Saints/S2.jpg",
-    TeamId: 8
+    image: "/images/Saints/S2.jpeg",
+    team:"New Orleans Saints"
   },
   {
     title: "Black Saints Hat",
-    image: "/images/Saints/S3.jpg",
-    TeamId: 8
+    image: "/images/Saints/S3.jpeg",
+    team:"New Orleans Saints"
   }
 ];
 for (let i = 0; i < hats.length; i++) {
   db.Hat.sync().then(function () {
-    db.Hat.create(hats[i], {
-      include: db.Team
-    });
+    db.Team.findOne({where: {title: hats[i].team}}).then(function(data){
+      delete hats[i].team;
+      hats[i].TeamId = data.id;
+      db.Hat.create(hats[i]);
+    })
   })
 }
-
 
 module.exports = db;
