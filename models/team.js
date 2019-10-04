@@ -24,7 +24,7 @@ module.exports = function (sequelize, DataTypes) {
   };
 
   // creating title for teams
-  let teams = [{
+  var teams = [{
       title: "Philadelphia Eagles"
     },
     {
@@ -55,7 +55,6 @@ module.exports = function (sequelize, DataTypes) {
       title: "Indianapolis Colts"
     }
   ];
-
   for (let i = 0; i < teams.length; i++) {
     Team.sync().then(function () {
       Team.create(teams[i])
