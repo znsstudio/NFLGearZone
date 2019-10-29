@@ -4,7 +4,7 @@
 NFLGearZone is a monthly subscribtion server for a hat from your favotite NFL team
 
 ## Heroku Link
-[Click here](link goes here)
+[Click here](https://nflgearzone.herokuapp.com/)
 
 ## NPM Dependencies
 
@@ -48,7 +48,7 @@ Run npm install in the terminal/command line:
 
 
 ## Authors
-*Eliza Irwin
-*Lav Patel
-*Nayely Perea
-*Rugiyya Mammadov
+* *Eliza Irwin*
+* *Lav Patel*
+* *Nayely Perea*
+* *Rugiyya Mammadov*
