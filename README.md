@@ -14,7 +14,7 @@ Hat page:
 ![alt text](/images/hatpage.png)
 
 ## Heroku Link
-[Click here](link goes here)
+[Click here](https://nflgearzone.herokuapp.com)
 
 ## NPM Dependencies
 
@@ -63,4 +63,4 @@ Run npm install in the terminal/command line:
 *Eliza Irwin*
 *Lav Patel*
 *Nayely Perea*
-*Rugiyya Mammadov*
+
