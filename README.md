@@ -3,6 +3,16 @@
 ## Description: 
 NFLGearZone is a monthly subscribtion server for a hat from your favotite NFL team
 
+## Views
+
+Home page:
+
+![alt text](/images/homepage.png)
+
+Hat page:
+
+![alt text](/images/hatpage.png)
+
 ## Heroku Link
 [Click here](https://nflgearzone.herokuapp.com)
 
@@ -30,6 +40,8 @@ Run npm install in the terminal/command line:
 
 * prettier
 
+* moment 
+
 ## Built With
 
 * Bootstrap
@@ -51,4 +63,4 @@ Run npm install in the terminal/command line:
 *Eliza Irwin*
 *Lav Patel*
 *Nayely Perea*
-*Rugiyya Mammadov*
+
