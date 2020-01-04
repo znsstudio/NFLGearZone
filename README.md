@@ -60,6 +60,7 @@ Run npm install in the terminal/command line:
 
 
 ## Authors
-*Eliza Irwin*
-*Lav Patel*
-*Nayely Perea*
+*Eliza Irwin*,
+*Lav Patel*,
+*Nayely Perea*,
+*Rugiyya Mammadov*
