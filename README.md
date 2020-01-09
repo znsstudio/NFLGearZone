@@ -1,7 +1,7 @@
 # NFLGearZone
 
 ## Description: 
-NFLGearZone is a monthly subscribtion server for a hat from your favotite NFL team
+NFLGearZone is a monthly subscription server for a hat from your favotite NFL team
 
 ## Views
 
